@@ -11,6 +11,19 @@ import itertools
 #Though it is not quite generic purpose yet as accepts pandas dataframes for training and testing datasets
 #Checks for testing vector or dataframes are required to be implemented in order to make as an API.
 
+#usage
+#Neural Network testing
+#here 3 are input states, 5 are number of hidden states and 1 is output state
+'''
+nn = NNet(5,6,1)
+nn.createDataSet(df_set1_train,['X1','X2','X3','X4','X5'],['Earning'])
+nn.testNN(df_set1_test)
+#to plot neural network output
+nn.plot_output()
+'''
+
+
+
 
 class NNet(object):
 
