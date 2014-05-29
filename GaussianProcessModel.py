@@ -11,7 +11,7 @@ from matplotlib import pyplot as pl
 gpr=GaussianProcessRigression(train_df,test_df)
 gpr.fitModel(['colname1'],['colname2'])
 gpr.givePlot()
-
+print gpr.y_pred   #gives out the prediction for the test dataframe
 '''
 
 
@@ -22,7 +22,7 @@ class GaussianProcessRigression(object):
 		self.df=data_frame
 		self.test=test_df
 
-	def fitModel(predictors,output_var):
+	def fitModel(self,predictors,output_var):
 		self.predictors=predictors
 		self.output_var=output_var
 		self.gp = GaussianProcess(corr='cubic', theta0=1e-2, thetaL=1e-4, thetaU=1e-1, random_start=100)
@@ -32,7 +32,7 @@ class GaussianProcessRigression(object):
 
 	#works only when you have single parameter for predictors only 
 	#as for multiple parameters doesn't make sense to make a 2D curve.
-	def givePlot(xlabel='$x$',ylabel='$f(x)$'):
+	def givePlot(self,xlabel='$x$',ylabel='$f(x)$'):
 		fig = pl.figure()
 		pl.plot(self.test[self.predictors], self.test[self.output_var], 'r:', label=u'Actual curve')
 		# pl.plot(X, y, 'r.', markersize=10, label=u'Observations')
