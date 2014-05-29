@@ -55,4 +55,4 @@ class FillMissingData(object):
 		for col in columns:
 			if len(self.data_frame[self.data_frame[col].isnull()].index) > 0:
 				self.data_frame[col][self.data_frame[col].isnull()] = self.data_frame[col].dropna().mode().values
-			__convertCategories(self.data_frame,col)
+			self.__convertCategories(self.data_frame,col)
