@@ -42,7 +42,7 @@ class LinearModels(object):
 		self.train_df= train_df
 		self.test_df= test_df
 		
-	def fittingModels(predictors,out_fv,kernel='linear'):
+	def fittingModels(self,predictors,out_fv,kernel='linear'):
 		#logistic regression model
 		self.predictors=predictors
 		self.out_fv=out_fv
@@ -72,7 +72,7 @@ class LinearModels(object):
 		self.lars_model = lm.LassoLars(alpha=0.1).fit(self.train_df.loc[:,self.predictors].values,self.train_df.loc[:,self.out_fv].values)
 
 
-	def predictions():
+	def predictions(self):
 
 		print "Simple Linear Regression Prediction"
 		print self.lr_model.score(self.test_df.loc[:,self.predictors].values,self.test_df.loc[:,self.out_fv].values)
